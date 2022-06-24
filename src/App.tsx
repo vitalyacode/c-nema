@@ -2,7 +2,7 @@ import { ThemeProvider } from '@mui/material'
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { MainLayout } from './components/layout/MainLayout'
-import { TestPage } from './pages/TestPage'
+import LandingPage from './pages/LandingPage'
 import { theme } from './utils/themeCreator'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <MainLayout>
           <Routes>
-            <Route path="/" element={<TestPage />}></Route>
+            <Route path="/" element={<LandingPage />}></Route>
           </Routes>
         </MainLayout>
       </BrowserRouter>

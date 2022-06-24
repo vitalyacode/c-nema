@@ -21,7 +21,8 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
   },
+  "eslint.workingDirectories": ["functions"],
   "include": [
     "src"
-  ]
+, "types.ts"  ]
 }
