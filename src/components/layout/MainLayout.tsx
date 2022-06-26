@@ -10,7 +10,7 @@ export const MainLayout: React.FC = ({ children }) => {
     <>
       <Box className={classes.boba}>
         <Header />
-        <Container component="main" maxWidth="sm">
+        <Container component="main" maxWidth="md">
           {children}
         </Container>
       </Box>

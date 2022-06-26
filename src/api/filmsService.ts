@@ -1,5 +1,6 @@
+import { getDoc, doc } from 'firebase/firestore'
 import axios from 'axios'
-import { films } from 'src/utils/mockFilms'
+import { db } from 'src/firebase-config'
 
 const httpClient = axios.create({
   baseURL: 'https://imdb-api.com/en/API/',
@@ -12,13 +13,15 @@ export const getInTheaters = async () => {
   // } catch (err) {
   //   throw err
   // }
-  const promise = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(films)
-    }, 300)
-  })
-  const response = await promise
-  return response
+  const fetchFilms = async () => {
+    const filmsRef = doc(db, 'films', 'InTheatres')
+    const filmsSnap = await getDoc(filmsRef)
+    const filmsData = filmsSnap.data()?.films
+    return filmsData
+  }
+
+  const result = await fetchFilms()
+  return result
 }
 
 export const filmsService = { getInTheaters }

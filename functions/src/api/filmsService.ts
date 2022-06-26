@@ -1,4 +1,4 @@
-import { IFilmList } from './../../../src/types'
+import { IFilmList } from './../../types/index'
 import axios from 'axios'
 
 const httpClient = axios.create({

@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme: Theme) => {
   return createStyles({
     boba: {
       backgroundColor: theme.palette.background.default,
+      color: theme.palette.primary.main,
       height: 'auto !important',
       minHeight: '100%',
     },

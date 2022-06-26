@@ -2,19 +2,19 @@ import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import { Toolbar, Typography, Box } from '@mui/material'
 import RequestButton from '../RequestButton'
-import { getInTheaters } from 'src/api/filmsService'
-import { db } from 'src/firebase-config'
-import { doc, setDoc } from 'firebase/firestore'
+import useStyles from './styles'
+import { getFunctions, httpsCallable } from 'firebase/functions'
 
 export const Header: React.FC = () => {
+  const styles = useStyles()
+  const functions = getFunctions()
+  const updateFilms = httpsCallable(functions, 'updateFilms')
   const imdbQuery = async () => {
-    const films = await getInTheaters()
-    await setDoc(doc(db, 'films', 'InTheatres'), {
-      films,
-    })
+    const response = await updateFilms({ bruh: 'yo' })
+    console.log(response.data)
   }
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} className={styles.header}>
       <AppBar position="static">
         <Toolbar variant="dense" sx={{ justifyContent: 'space-around' }}>
           <Typography variant="h3" color="inherit" component="h3">

@@ -1,11 +1,11 @@
-import { IFilmList } from '../../../src/types'
-
 // id: string
 //   title: string
 //   image: string
 //   runtimeMins: string
 //   plot: string
 //   genres: string
+
+import { IFilmList } from '../../types'
 
 export const sanitizeFilms = ({ items }: IFilmList) => {
   const sanitizedFilms = items.map((film) => {

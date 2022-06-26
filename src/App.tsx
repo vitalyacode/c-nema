@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@mui/material'
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { MainLayout } from './components/layout/MainLayout'
+import { MainLayout } from './components/Layout/MainLayout'
 import LandingPage from './pages/LandingPage'
 import { theme } from './utils/themeCreator'
 

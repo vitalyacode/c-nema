@@ -8,5 +8,5 @@ export interface IFilm {
 }
 
 export interface IFilmList {
-  films: IFilm[]
+  items: IFilm[]
 }
