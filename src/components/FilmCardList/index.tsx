@@ -1,14 +1,20 @@
-import { Box } from '@mui/material'
+import { Grid } from '@mui/material'
 import * as React from 'react'
-import { IFilmList, IFilm } from 'src/types'
+import { IFilm } from 'src/types'
 import { FilmCard } from '../FilmCard'
 
-export const FilmCardList: React.FC<IFilmList> = ({ films }) => {
+type FilmCardListProps = {
+  films: IFilm[]
+}
+
+export const FilmCardList: React.FC<FilmCardListProps> = ({ films }) => {
   return (
-    <>
+    <Grid container spacing={5}>
       {films.map((film: IFilm) => (
-        <FilmCard key={film.id} {...film} />
+        <Grid item key={film.id} xs={12} md={6}>
+          <FilmCard {...film} />
+        </Grid>
       ))}
-    </>
+    </Grid>
   )
 }

@@ -2,12 +2,12 @@ import { Theme } from '@mui/material'
 import { createStyles, makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles((theme: Theme) => {
-  console.log(theme.palette.background.default)
   return createStyles({
     filmCardWrapper: {
       display: 'flex',
       minWidth: '100%',
-      width: '100%',
+      padding: '20px',
+      boxSizing: 'border-box',
     },
     filmInfoWrapper: {
       display: 'flex',
@@ -19,14 +19,16 @@ const useStyles = makeStyles((theme: Theme) => {
     },
     title: {
       textAlign: 'center',
+      fontSize: '1.9rem !important',
     },
     plot: {
-      maxHeight: '65px',
+      display: '-webkit-box',
       overflow: 'hidden',
+      lineClamp: 2,
+      '-webkit-box-orient': 'vertical',
     },
     shadow: {
       position: 'absolute',
-      // backgroundColor: 'rgba(0,0,0,0)',
       background: `linear-gradient(to right, rgba(255,255,255,0) 0%, ${theme.palette.background.default})`,
       height: '20px',
       width: '20%',

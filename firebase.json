@@ -5,6 +5,7 @@
   },
   "emulators": {
     "functions": {
+      "enabled": true,
       "port": 5001
     },
     "firestore": {
@@ -15,7 +16,12 @@
       "port": 4000
     },
     "pubsub": {
+      "enabled": true,
       "port": 8085
     }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": " "
   }
 }

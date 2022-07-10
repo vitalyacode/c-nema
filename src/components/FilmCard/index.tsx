@@ -1,9 +1,7 @@
-import { Box, Paper, Typography } from '@mui/material'
+import { Box, Link, Typography, Paper } from '@mui/material'
 import * as React from 'react'
-import { Link } from 'react-router-dom'
-import useGlobalStyles from 'src/globalStyles'
-import { MyLink } from '../MyLink'
 import useStyles from './styles'
+import { Link as DOMLink } from 'react-router-dom'
 
 type FilmCardProps = {
   id: string
@@ -21,26 +19,23 @@ export const FilmCard: React.FC<FilmCardProps> = ({
   plot,
 }) => {
   const styles = useStyles()
-  const globalStyles = useGlobalStyles()
+
   return (
-    <Box
-      className={`${styles.filmCardWrapper}`}
-      component={MyLink}
-      to={`/film/${id}`}
-    >
-      <Box component="img" src={image} />
+    <Paper className={styles.filmCardWrapper}>
+      <DOMLink to={`/film/${id}`}>
+        <Box component="img" src={image} sx={{ display: 'flex' }} />
+      </DOMLink>
       <Box className={styles.filmInfoWrapper}>
-        <Typography className={styles.title} component="h4" variant="h4">
-          {title}
-        </Typography>
-        <Box className={styles.shadowWrapper}>
-          <Box className={styles.shadow}></Box>
-          <Typography className={styles.plot} component="p">
-            {plot}
+        <Link component={DOMLink} to={`/film/${id}`} underline="hover">
+          <Typography className={styles.title} component="h4" variant="h4">
+            {title}
           </Typography>
-        </Box>
-        <Typography>Genres: {genres}</Typography>
+        </Link>
+        <Typography className={styles.plot} component="p">
+          {plot}
+        </Typography>
+        <Typography component="p">Genres: {genres}</Typography>
       </Box>
-    </Box>
+    </Paper>
   )
 }

@@ -5,8 +5,43 @@ export interface IFilm {
   runtimeMins: string
   plot: string
   genres: string
+  starList: Star[]
 }
 
-export interface IFilmList {
-  films: IFilm[]
+export interface IFilmWithImages extends IFilm {
+  images: string[]
+}
+
+export interface ICommonSeatProperties {
+  selectedSeats: Seat[]
+  handleSelect: CallableFunction
+}
+
+export type Star = {
+  id: string
+  name: string
+}
+
+export type ImageArray = {
+  images: string[]
+}
+
+export type FullFilm = {
+  data: IFilm
+}
+
+export type Seat = {
+  id: string
+  isFree: boolean
+  row: number
+  column: number
+}
+
+export type LayoutObject = {
+  [key: string]: Seat[]
+}
+
+export type OrderTicketsData = {
+  filmId: string
+  seatIds: string[]
 }

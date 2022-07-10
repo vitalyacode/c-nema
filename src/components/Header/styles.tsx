@@ -3,7 +3,7 @@ import { createStyles, makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    header: { paddingBottom: '10px' },
+    header: { paddingBottom: '30px' },
   })
 )
 

@@ -7,6 +7,16 @@ const useGlobalStyles = makeStyles((theme: Theme) =>
       textDecoration: 'inherit',
       color: 'inherit',
     },
+    all: {
+      '&::-webkit-scrollbar': {
+        width: '0.3em',
+      },
+
+      '&::-webkit-scrollbar-thumb': {
+        borderRadius: '5px',
+        backgroundColor: `${theme.palette.primary.main}`,
+      },
+    },
   })
 )
 

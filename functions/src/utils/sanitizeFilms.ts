@@ -5,12 +5,12 @@
 //   plot: string
 //   genres: string
 
-import { IFilmList } from '../../types'
+import { IFilm, IFilmList } from '../../types'
 
-export const sanitizeFilms = ({ items }: IFilmList) => {
+export const sanitizeFilms = ({ items }: IFilmList): IFilm[] => {
   const sanitizedFilms = items.map((film) => {
-    const { id, title, image, runtimeMins, plot, genres } = film
-    return { id, title, image, runtimeMins, plot, genres }
+    const { id, title, image, runtimeMins, plot, genres, starList } = film
+    return { id, title, image, runtimeMins, plot, genres, starList }
   })
   return sanitizedFilms
 }

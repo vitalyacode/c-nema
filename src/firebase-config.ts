@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
+import { getFunctions } from 'firebase/functions'
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -32,3 +33,5 @@ const app = initializeApp(firebaseConfig)
 
 export default app
 export const db = getFirestore()
+
+export const functions = getFunctions(app, 'europe-central2')
