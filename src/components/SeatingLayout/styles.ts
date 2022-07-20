@@ -7,6 +7,20 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       gap: '20px',
+      position: 'relative',
+      marginTop: '20px',
+    },
+    preloaderContainer: {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      zIndex: '9999',
+    },
+    displayNone: {
+      display: 'none',
+    },
+    displayFlex: {
+      display: 'flex',
     },
     layoutWrapper: {
       display: 'flex',

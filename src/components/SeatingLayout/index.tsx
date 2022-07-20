@@ -1,10 +1,12 @@
 import { Button, Typography } from '@mui/material'
 import { Box } from '@mui/system'
+import clsx from 'clsx'
 import { httpsCallable } from 'firebase/functions'
 import { useCallback, useEffect, useState } from 'react'
 import { ordersService } from 'src/api/ordersService'
 import { functions } from 'src/firebase-config'
 import { LayoutObject, OrderTicketsData, Seat } from 'src/types'
+import { Preloader } from '../Preloader/Preloader'
 import { Row4Sided } from './rows/Row4Sided'
 import { RowCommon } from './rows/RowCommon'
 import useStyles from './styles'
@@ -16,6 +18,7 @@ type SeatingLayoutProps = {
 export const SeatingLayout: React.FC<SeatingLayoutProps> = ({ id }) => {
   const [seatRows, setSeatRows] = useState<LayoutObject>({})
   const [selectedSeats, setSelectedSeats] = useState<Seat[]>([])
+  const [isPreloaderVisible, setIsPreloaderVisible] = useState<boolean>(false)
   const styles = useStyles()
 
   const fetchSeats = useCallback(async () => {
@@ -43,11 +46,14 @@ export const SeatingLayout: React.FC<SeatingLayoutProps> = ({ id }) => {
       seatIds: selectedSeats.map((seat) => seat.id),
     }
     try {
+      setIsPreloaderVisible(true)
       await orderTickets(orderData)
       await fetchSeats()
       setSelectedSeats([])
     } catch (err) {
       console.error(err)
+    } finally {
+      setIsPreloaderVisible(false)
     }
   }
 
@@ -55,9 +61,18 @@ export const SeatingLayout: React.FC<SeatingLayoutProps> = ({ id }) => {
     id && fetchSeats()
   }, [id, fetchSeats])
 
+  const preloaderClasses = clsx({
+    [styles.preloaderContainer]: true,
+    [styles.displayNone]: !isPreloaderVisible,
+    [styles.displayFlex]: isPreloaderVisible,
+  })
+
   return (
     <>
       <Box className={styles.contentWrapper}>
+        <Box className={preloaderClasses}>
+          <Preloader />
+        </Box>
         <Box className={styles.layoutWrapper}>
           {Object.keys(seatRows).map((seatRowKey) => {
             const index = parseInt(seatRowKey)
@@ -90,7 +105,7 @@ export const SeatingLayout: React.FC<SeatingLayoutProps> = ({ id }) => {
             {selectedSeats.map((seat) => (
               <Typography
                 key={`${seat.row}${seat.column}`}
-              >{`row ${seat.row} column ${seat.column}`}</Typography>
+              >{`Row ${seat.row}, seat ${seat.column}`}</Typography>
             ))}
           </Box>
         </Box>

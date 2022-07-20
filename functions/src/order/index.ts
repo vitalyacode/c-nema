@@ -7,7 +7,6 @@ export const orderTickets = functions
   .region(REGION)
   .https.onCall(async (data: OrderTicketsData, context) => {
     const { filmId, seatIds } = data
-    console.log(data, filmId)
     const currentOrdersRef = db.doc(`orders/${filmId}`)
     const ordersSnap = await currentOrdersRef.get()
     try {
@@ -24,7 +23,11 @@ export const orderTickets = functions
         })
       })
       await currentOrdersRef.set({ seats })
+      return {
+        result: 'ok',
+      }
     } catch (err) {
-      console.error(err)
+      const error = err as any
+      throw new functions.https.HttpsError('already-exists', error.message)
     }
   })

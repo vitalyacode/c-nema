@@ -1,7 +1,7 @@
 import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
 import { Toolbar, Typography, Box } from '@mui/material'
-import RequestButton from '../RequestButton'
+// import RequestButton from '../RequestButton'
 import useStyles from './styles'
 import useGlobalStyles from '../../globalStyles'
 import { getFunctions, httpsCallable } from 'firebase/functions'
@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
               C-nema
             </Typography>
           </Link>
-          <RequestButton fn={imdbQuery} label={'Re-request'} />
+          {/* <RequestButton fn={imdbQuery} label={'Re-request'} /> */}
         </Toolbar>
       </AppBar>
     </Box>

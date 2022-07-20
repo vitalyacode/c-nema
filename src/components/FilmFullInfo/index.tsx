@@ -28,7 +28,10 @@ export const FilmFullInfo: React.FC<IFilmWithImages> = ({
   const globalStyles = useGlobalStyles()
   return (
     <Box className={styles.contentWrapper}>
-      <Box className={styles.previewAndInfoContainer}>
+      <Box
+        className={styles.previewAndInfoContainer}
+        sx={{ flexDirection: { sx: 'column', sm: 'row' } }}
+      >
         <Box className={styles.posterContainer}>
           <Poster component="img" src={biggerImage} className={styles.poster} />
         </Box>
