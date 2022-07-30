@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "c-nema-bc8c9"
-  }
+    "default": "c-nema-bc8c9",
+    " ": "c-nema-bc8c9"
+  },
+  "targets": {}
 }

@@ -3,13 +3,14 @@ import { createStyles, makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    title: {
-      textAlign: 'center',
-    },
-    stepContainer: {
+    buttonWrapper: {
       display: 'flex',
-      flexDirection: 'column',
       justifyContent: 'center',
+      marginTop: '30px',
+    },
+    button: {
+      fontSize: '1.2em !important',
+      padding: '5px 40px !important',
     },
   })
 )

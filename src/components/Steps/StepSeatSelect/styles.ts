@@ -6,11 +6,6 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       textAlign: 'center',
     },
-    stepContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-    },
   })
 )
 

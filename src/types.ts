@@ -17,6 +17,12 @@ export interface ICommonSeatProperties {
   handleSelect: CallableFunction
 }
 
+export interface IUserCredentials {
+  firstName: string
+  lastName: string
+  email: string
+}
+
 export type Star = {
   id: string
   name: string
@@ -44,4 +50,10 @@ export type LayoutObject = {
 export type OrderTicketsData = {
   filmId: string
   seatIds: string[]
+}
+
+export type SeatingLayoutType = {
+  id: string
+  selectedSeats: Seat[]
+  setSelectedSeats: CallableFunction
 }

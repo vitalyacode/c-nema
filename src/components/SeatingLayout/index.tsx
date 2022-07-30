@@ -5,19 +5,25 @@ import { httpsCallable } from 'firebase/functions'
 import { useCallback, useEffect, useState } from 'react'
 import { ordersService } from 'src/api/ordersService'
 import { functions } from 'src/firebase-config'
-import { LayoutObject, OrderTicketsData, Seat } from 'src/types'
+import {
+  LayoutObject,
+  OrderTicketsData,
+  Seat,
+  SeatingLayoutType,
+} from 'src/types'
 import { Preloader } from '../Preloader/Preloader'
 import { Row4Sided } from './rows/Row4Sided'
 import { RowCommon } from './rows/RowCommon'
 import useStyles from './styles'
 
-type SeatingLayoutProps = {
-  id: string
-}
+type SeatingLayoutProps = SeatingLayoutType
 
-export const SeatingLayout: React.FC<SeatingLayoutProps> = ({ id }) => {
+export const SeatingLayout: React.FC<SeatingLayoutProps> = ({
+  id,
+  selectedSeats,
+  setSelectedSeats,
+}) => {
   const [seatRows, setSeatRows] = useState<LayoutObject>({})
-  const [selectedSeats, setSelectedSeats] = useState<Seat[]>([])
   const [isPreloaderVisible, setIsPreloaderVisible] = useState<boolean>(false)
   const styles = useStyles()
 
@@ -90,14 +96,14 @@ export const SeatingLayout: React.FC<SeatingLayoutProps> = ({ id }) => {
           })}
         </Box>
         <Box className={styles.selectedSeatsAndButtonContainer}>
-          <Button
+          {/* <Button
             variant="contained"
             sx={{ fontSize: '20px' }}
             disabled={!selectedSeats.length}
             onClick={() => handleOrderTickets()}
           >
             Order tickets
-          </Button>
+          </Button> */}
           <Box className={styles.selectedSeatsContainer}>
             <Typography component="h4" variant="h4">
               Selected seats
