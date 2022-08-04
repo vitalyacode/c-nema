@@ -6,7 +6,7 @@ export const SteppingContextDefaults = {
 }
 
 export const UserCredentialsDefaults: IUserCredentials = {
-  firstName: 'Biba',
-  lastName: 'Bobovich',
-  email: 'email.example@gmail.com',
+  firstName: '',
+  lastName: '',
+  email: '',
 }

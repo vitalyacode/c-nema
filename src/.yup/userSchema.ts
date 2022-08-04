@@ -11,5 +11,9 @@ export const userSchema = yup.object({
     .required('Last name is required')
     .matches(/^[A-Z][a-z]*$/, 'Second name must start with capital letter')
     .max(100, 'Value too long'),
-  email: yup.string().required('Email is required').email('Must be email'),
+  email: yup
+    .string()
+    .required('Email is required')
+    .email('Must be email')
+    .max(40),
 })

@@ -37,7 +37,20 @@ export type LayoutObject = {
   [key: string]: Seat[]
 }
 
+export interface IUserCredentials {
+  firstName: string
+  lastName: string
+  email: string
+}
+
 export type OrderTicketsData = {
   filmId: string
   seatIds: string[]
+  userCredentials: IUserCredentials
+}
+
+export type PdfData = {
+  film: IFilm
+  takenSeats: Seat[]
+  userCredentials: IUserCredentials
 }

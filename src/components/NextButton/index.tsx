@@ -7,6 +7,7 @@ type NextButtonProps = {
   onClick: CallableFunction
   onSubmit?: CallableFunction
   disabled?: boolean
+  text?: string
 }
 
 export const NextButton: React.FC<NextButtonProps> = ({
@@ -14,6 +15,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
   onClick,
   onSubmit,
   disabled = false,
+  text = 'Next',
 }) => {
   const styles = useStyles()
   const isSubmit = type === 'submit'
@@ -31,7 +33,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
         className={styles.button}
         disabled={disabled}
       >
-        Next
+        {text}
       </Button>
     </Box>
   )

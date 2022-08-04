@@ -45,23 +45,23 @@ export const SeatingLayout: React.FC<SeatingLayoutProps> = ({
       : setSelectedSeats(selectedSeats.concat(clickedSeat))
   }
 
-  const handleOrderTickets = async () => {
-    const orderTickets = httpsCallable(functions, 'orderTickets')
-    const orderData: OrderTicketsData = {
-      filmId: id,
-      seatIds: selectedSeats.map((seat) => seat.id),
-    }
-    try {
-      setIsPreloaderVisible(true)
-      await orderTickets(orderData)
-      await fetchSeats()
-      setSelectedSeats([])
-    } catch (err) {
-      console.error(err)
-    } finally {
-      setIsPreloaderVisible(false)
-    }
-  }
+  // const handleOrderTickets = async () => {
+  //   const orderTickets = httpsCallable(functions, 'orderTickets')
+  //   const orderData: OrderTicketsData = {
+  //     filmId: id,
+  //     seatIds: selectedSeats.map((seat) => seat.id),
+  //   }
+  //   try {
+  //     setIsPreloaderVisible(true)
+  //     await orderTickets(orderData)
+  //     await fetchSeats()
+  //     setSelectedSeats([])
+  //   } catch (err) {
+  //     console.error(err)
+  //   } finally {
+  //     setIsPreloaderVisible(false)
+  //   }
+  // }
 
   useEffect(() => {
     id && fetchSeats()

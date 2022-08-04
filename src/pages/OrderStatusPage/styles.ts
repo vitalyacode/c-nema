@@ -3,13 +3,16 @@ import { createStyles, makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    main: {
-      width: '100%',
-      height: '100%',
-      position: 'absolute',
+    textContainer: {
+      height: '60vh',
       display: 'flex',
+      flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
+    },
+    icon: {
+      width: '150px !important',
+      height: '150px  !important',
     },
   })
 )

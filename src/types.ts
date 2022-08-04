@@ -50,6 +50,7 @@ export type LayoutObject = {
 export type OrderTicketsData = {
   filmId: string
   seatIds: string[]
+  userCredentials: IUserCredentials
 }
 
 export type SeatingLayoutType = {

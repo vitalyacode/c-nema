@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme: Theme) =>
       top: '-10px',
       whiteSpace: 'nowrap',
     },
+    formContainer: {
+      height: 'fit-content',
+    },
   })
 )
 

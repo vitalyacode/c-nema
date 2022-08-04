@@ -5,6 +5,7 @@ import { MainLayout } from './layout/MainLayout/MainLayout'
 import FilmPage from './pages/FilmPage'
 import LandingPage from './pages/LandingPage'
 import OrderPage from './pages/OrderPage'
+import { OrderStatusPage } from './pages/OrderStatusPage'
 import { theme } from './utils/themeCreator'
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
               <Route path="/" element={<LandingPage />}></Route>
               <Route path="/film/:id" element={<FilmPage />}></Route>
               <Route path="/order/:id" element={<OrderPage />}></Route>
+              <Route
+                path="/order/:id/:status"
+                element={<OrderStatusPage />}
+              ></Route>
             </Routes>
           </MainLayout>
         </BrowserRouter>

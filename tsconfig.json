@@ -20,9 +20,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
+    "typeRoots" : ["src/images.d.ts"]
   },
   "eslint.workingDirectories": ["functions"],
   "include": [
     "src"
-, "types.ts"  ]
+, "types.ts" ,  ]
 }
